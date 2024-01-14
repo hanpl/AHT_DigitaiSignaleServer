@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
-builder.Services.AddHostedService<MyBackgroundService>();
+//builder.Services.AddHostedService<MyBackgroundService>();
 builder.Services.AddSingleton<DashboardHub>();
 builder.Services.AddSingleton<SubscribeDigitalSignageTableDependency>();
 
@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyCorsPolicy", builder =>
     {
-        builder.WithOrigins("http://localhost:3000", "http://localhost:3001")
+        builder.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:8010")
                .AllowAnyMethod()
                .AllowAnyHeader()
                .AllowCredentials();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "34RGnD1M00wnUc3Tvsv567AJ527XIrk20L5fOOCbqjj0rQ2ee6OLdVQVFKrWN7jwkz0v+fDK86ON1p7O5Mmh5g==",
+  "dgSpecHash": "VOcCz2Fxzvwtf7admja1guaoYUWijobb9CcJEKneD2qukJHuH9gPNwcb/OLDZcIAj3UYZh5GGD+L0OkxKj0hug==",
   "success": true,
-  "projectFilePath": "J:\\2024\\AHT\\Digital Signage\\DigitalSignageSevice\\DigitalSignageSevice.csproj",
+  "projectFilePath": "J:\\2024\\AHT\\Digital Signage\\AHT_DigitaiSignaleServer\\DigitalSignageSevice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\dapper\\2.1.24\\dapper.2.1.24.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "J:\\2024\\AHT\\Digital Signage\\DigitalSignageSevice\\DigitalSignageSevice.csproj": {}
+    "J:\\2024\\AHT\\Digital Signage\\AHT_DigitaiSignaleServer\\DigitalSignageSevice.csproj": {}
   },
   "projects": {
-    "J:\\2024\\AHT\\Digital Signage\\DigitalSignageSevice\\DigitalSignageSevice.csproj": {
+    "J:\\2024\\AHT\\Digital Signage\\AHT_DigitaiSignaleServer\\DigitalSignageSevice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "J:\\2024\\AHT\\Digital Signage\\DigitalSignageSevice\\DigitalSignageSevice.csproj",
+        "projectUniqueName": "J:\\2024\\AHT\\Digital Signage\\AHT_DigitaiSignaleServer\\DigitalSignageSevice.csproj",
         "projectName": "DigitalSignageSevice",
-        "projectPath": "J:\\2024\\AHT\\Digital Signage\\DigitalSignageSevice\\DigitalSignageSevice.csproj",
+        "projectPath": "J:\\2024\\AHT\\Digital Signage\\AHT_DigitaiSignaleServer\\DigitalSignageSevice.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "J:\\2024\\AHT\\Digital Signage\\DigitalSignageSevice\\obj\\",
+        "outputPath": "J:\\2024\\AHT\\Digital Signage\\AHT_DigitaiSignaleServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

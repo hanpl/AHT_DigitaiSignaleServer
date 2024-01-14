@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DigitalSignageSevice
 build_property.RootNamespace = DigitalSignageSevice
-build_property.ProjectDir = J:\2024\AHT\Digital Signage\DigitalSignageSevice\
+build_property.ProjectDir = J:\2024\AHT\Digital Signage\AHT_DigitaiSignaleServer\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = J:\2024\AHT\Digital Signage\DigitalSignageSevice
+build_property.MSBuildProjectDirectory = J:\2024\AHT\Digital Signage\AHT_DigitaiSignaleServer
 build_property._RazorSourceGeneratorDebug = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/Dashboard/Index.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/Home/Index.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/Home/Privacy.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/Shared/Error.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/Shared/_ValidationScriptsPartial.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/_ViewImports.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/_ViewStart.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[J:/2024/AHT/Digital Signage/DigitalSignageSevice/Views/Shared/_Layout.cshtml]
+[J:/2024/AHT/Digital Signage/AHT_DigitaiSignaleServer/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-e6n7cz771d
