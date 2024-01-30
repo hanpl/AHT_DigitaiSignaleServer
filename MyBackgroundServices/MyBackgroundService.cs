@@ -1,6 +1,7 @@
 ﻿using DigitalSignageSevice.Models;
 using Microsoft.Data.SqlClient;
 using NuGet.Packaging.Signing;
+using System;
 using System.Data;
 
 namespace DigitalSignageSevice.MyBackgroundServices
@@ -18,47 +19,49 @@ namespace DigitalSignageSevice.MyBackgroundServices
             {
                 // Thực hiện công việc cần chạy định kỳ tại đây
                 Console.WriteLine("Running scheduled task..." + connectionString);
-                for (int i = 1; i < 11; i++)
-                {
-                    var Mode = "";
-                    var Live = "";
-                    var data = GetWorkOrderDetailsFromDb(Convert.ToString(i));
-                    //Console.WriteLine($"{i} {data}");
-                    //Console.WriteLine(data.Rows.Count);
-                    if (data.Rows.Count != 0)
-                    {
-                        foreach (DataRow row in data.Rows)
-                        {
-                            
-                            Mode = (CheckModeEgate(row["LineCode"].ToString(), Convert.ToString(i)) == true ? "Yes" : "No");
-                            Live = row["LineCode"].ToString() + "_" +(Mode =="Yes"?"EGATE":"NOEGATE")+"_"+ row["Remark"].ToString()+"_"+ row["LeftRight"].ToString();
-                            Console.WriteLine("Gate Doing..." + row["Name"].ToString() + " - " + row["LineCode"].ToString() +" - "+ row["Remark"].ToString() +" - "+ Mode+"  "+Live);
-                            if ((row["Live"].ToString()==Live)&& (row["Mode"].ToString() == Mode)&& (row["Mcdt"].ToString() == row["TimeMcdt"].ToString()))
-                            {
-                                Console.WriteLine("Gate not yet change...");
-                                //Bổ sung code gửi signalr đến  client tương ứng
-                            }
-                            else
-                            {
-                                if (UpdateGateToDoing(Convert.ToInt32(row["Id"]), Live, row["Remark"].ToString(), Mode, row["LineCode"].ToString(), row["FlightNo"].ToString(), row["Mcdt"].ToString()))
-                                {
-                                    Console.WriteLine("UpdateGateToDoing");
-                                    //Bổ sung code gửi signalr đến  client tương ứng
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Gate AHTBG" + Convert.ToString(i)+" Free...");
-                        if(UpdateGateToFree("AHTBG" + Convert.ToString(i)))
-                        {
-                            Console.WriteLine("UpdateGateToFree");
-                            //Bổ sung code gửi signalr đến  client tương ứng
-                        }
-                    }
-                    
-                }
+                //Convert(Datetime, "Jan 14 2024  4:30PM") between DATEADD(Mi, -20,getdate()) and DATEADD(Mi, 150,getdate()) 
+                
+                //for (int i = 1; i < 11; i++)
+                //{
+                //    var Mode = "";
+                //    var Live = "";
+                //    var data = GetWorkOrderDetailsFromDb(Convert.ToString(i));
+                //    //Console.WriteLine($"{i} {data}");
+                //    //Console.WriteLine(data.Rows.Count);
+                //    if (data.Rows.Count != 0)
+                //    {
+                //        foreach (DataRow row in data.Rows)
+                //        {
+
+                //            Mode = (CheckModeEgate(row["LineCode"].ToString(), Convert.ToString(i)) == true ? "Yes" : "No");
+                //            Live = row["LineCode"].ToString() + "_" +(Mode =="Yes"?"EGATE":"NOEGATE")+"_"+ row["Remark"].ToString()+"_"+ row["LeftRight"].ToString();
+                //            Console.WriteLine("Gate Doing..." + row["Name"].ToString() + " - " + row["LineCode"].ToString() +" - "+ row["Remark"].ToString() +" - "+ Mode+"  "+Live);
+                //            if ((row["Live"].ToString()==Live)&& (row["Mode"].ToString() == Mode)&& (row["Mcdt"].ToString() == row["TimeMcdt"].ToString()))
+                //            {
+                //                Console.WriteLine("Gate not yet change...");
+                //                //Bổ sung code gửi signalr đến  client tương ứng
+                //            }
+                //            else
+                //            {
+                //                if (UpdateGateToDoing(Convert.ToInt32(row["Id"]), Live, row["Remark"].ToString(), Mode, row["LineCode"].ToString(), row["FlightNo"].ToString(), row["Mcdt"].ToString()))
+                //                {
+                //                    Console.WriteLine("UpdateGateToDoing");
+                //                    //Bổ sung code gửi signalr đến  client tương ứng
+                //                }
+                //            }
+                //        }
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine("Gate AHTBG" + Convert.ToString(i)+" Free...");
+                //        if(UpdateGateToFree("AHTBG" + Convert.ToString(i)))
+                //        {
+                //            Console.WriteLine("UpdateGateToFree");
+                //            //Bổ sung code gửi signalr đến  client tương ứng
+                //        }
+                //    }
+
+                //}
 
                 // Đợi một khoảng thời gian trước khi chạy công việc tiếp theo
                 await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);

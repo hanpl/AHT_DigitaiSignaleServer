@@ -10,5 +10,12 @@ namespace DigitalSignageSevice.MiddlewareExtensions
             var service = serviceProvider.GetService<SubscribeDigitalSignageTableDependency>();
             service.SubscribeTableDependency(connectionString);
         }
+
+        public static void UseInforGateTableDependency(this IApplicationBuilder applicationBuilder, string connectionString)
+        {
+            var serviceProvider = applicationBuilder.ApplicationServices;
+            var service = serviceProvider.GetService<SubscribeInforGateTableDependency>();
+            service.SubscribeTableDependency(connectionString);
+        }
     }
 }

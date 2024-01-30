@@ -18,5 +18,6 @@ namespace DigitalSignageSevice.Controllers
             mode = digitalSignarlRepository.GetDataDigital();
             return View(mode);
         }
+
     }
 }

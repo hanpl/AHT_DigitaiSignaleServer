@@ -25,11 +25,15 @@ namespace DigitalSignageSevice.SubscribeTableDependencies
             tableDependency.Start();
         }
 
-        private void TableDependency_Onchanged(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<AHT_DigitalSignage> e)
+        private async void TableDependency_Onchanged(object sender, TableDependency.SqlClient.Base.EventArgs.RecordChangedEventArgs<AHT_DigitalSignage> e)
         {
             if (e.ChangeType != TableDependency.SqlClient.Base.Enums.ChangeType.None)
             {
-                dashboardHub.SendToClientChanged(e.Entity.ConnectionId, e.Entity.Location);
+                if ((e.Entity.Work == "Yes")&& (e.Entity.ConnectionId != ""))
+                {
+                    await dashboardHub.SendReloadToClient(e.Entity.ConnectionId!, "Reload");
+                    digitalSignarlRepository.UpdateWorkToNo(e.Entity.Id.ToString());
+                }
             }
         }
 

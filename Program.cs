@@ -10,13 +10,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
 //builder.Services.AddHostedService<MyBackgroundService>();
 builder.Services.AddSingleton<DashboardHub>();
-builder.Services.AddSingleton<SubscribeDigitalSignageTableDependency>();
+//builder.Services.AddSingleton<SubscribeDigitalSignageTableDependency>();
+builder.Services.AddSingleton<SubscribeInforGateTableDependency>();
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyCorsPolicy", builder =>
     {
-        builder.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:8010")
+        builder.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://172.17.18.12:8282", "http://localhost:8010")
                .AllowAnyMethod()
                .AllowAnyHeader()
                .AllowCredentials();
@@ -46,5 +47,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
-app.UseDigitalSignalrTableDependency(connectionString);
+//app.UseDigitalSignalrTableDependency(connectionString);
+app.UseInforGateTableDependency(connectionString);
 app.Run();

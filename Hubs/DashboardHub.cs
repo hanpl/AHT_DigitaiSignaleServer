@@ -19,23 +19,30 @@ namespace DigitalSignageSevice.Hubs
         public override async Task OnConnectedAsync()
         {
             var connectionId = Context.ConnectionId;
-            var clientIpAddressip = Context.GetHttpContext().Connection.RemoteIpAddress;
-            Console.WriteLine(connectionId + "  "+ clientIpAddressip);
-            // Xử lý địa chỉ IP của client kết nối đến
+            var clientIpAddressip = Context.GetHttpContext()!.Connection.RemoteIpAddress;
+            Console.WriteLine(connectionId + " On "+ clientIpAddressip);
+            if(digitalSignarlRepository.UpdateOnConnectionIdGate(clientIpAddressip!.ToString().Trim(), connectionId))
+            {
+                Console.WriteLine("Updated to database !...");
+            }    
             await base.OnConnectedAsync();
         }
         public override async Task OnDisconnectedAsync(Exception exception)
         {
             var connectionId = Context.ConnectionId;
-            var clientIpAddressip = Context.GetHttpContext().Connection.RemoteIpAddress;
-            Console.WriteLine(connectionId + "  " + clientIpAddressip);
+            var clientIpAddressip = Context.GetHttpContext()!.Connection.RemoteIpAddress;
+            Console.WriteLine(connectionId + " Dis " + clientIpAddressip);
+            if (digitalSignarlRepository.UpdateDisConnectionIdGate(clientIpAddressip!.ToString().Trim()))
+            {
+                Console.WriteLine("Updated to database !...");
+            }
             // Thực hiện xử lý khi client ngắt kết nối
             await base.OnDisconnectedAsync(exception);
         }
-        public async Task SendToClientChanged(string connectId, string name)
+        public async Task SendReloadToClient(string connectId, string name)
         {
             //var workOrders = digitalSignarlRepository.GetWorkOrder();
-            //await Clients.All.SendAsync("ReceivedClientChanged", connectId, name);
+            await Clients.Client(connectId).SendAsync("ReceivedClientChanged",connectId, name);
         }
 
 

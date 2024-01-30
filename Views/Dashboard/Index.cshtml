@@ -12,26 +12,57 @@
                     <table class="table table-hover" id="tblWorkOrderDone">
                         <thead class="theadheader" style="background-color: #31d2f2;">
                             <tr>
-                                <th>Tên Đội</th>
-                                <th>Hệ Thống</th>
-                                <th>Vị Trí</th>
-                                <th>Thiết Bị Lỗi</th>
-                                <th>Mô Tả Lỗi</th>
-                                <th>Thời Gian Lỗi</th>
-                                <th>Thời Gian Kết Thúc</th>
+                                <th>Name</th>
+                                <th>IpAddress</th>
+                                <th>Location</th>
+                                <th>Left/Right</th>
+                                <th>Live</th>
+                                <th>Remark</th>
+                                <th>Status</th>
+                                <th>GateChange</th>
+                                <th>Mode</th>
+                                <th>Auto</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
+                                <tr style="font-weight: 500;">
                                     <td>@item.Name</td>
                                     <td>@item.Ip</td>
-                                    <td>@item.Location</td>
-                                    <td>@item.Remark</td>
-                                    <td>@item.ConnectionId</td>
-                                    <td>@item.TimeMcdt</td>
-                                    <td>@item.Auto</td>
+                                    <td class="@(@item.Status != "No" ? "text-green":"")">@item.Location</td>
+                                    <td class="@(@item.Status != "No" ? "text-green":"")">@item.LeftRight</td>
+                                    <td class="@(@item.Status != "No" ? "text-green":"")">@item.Live</td>
+                                    <td class="@(@item.Status != "No" ? "text-green":"")">@item.Remark</td>
+                                    <td><i class="fas fa-circle fa-lg @(@item.Status != "No" ? "text-green":"text-gray")"></i></td>
+                                    <td href="#" class="@((@item.GateChange != "No")|| (@item.GateChange == "0") ? "text-red bold":"")  ">
+                                        <span class="GateChange @item.Name @item.LeftRight" data-name="@item.Name" data-lere="@item.LeftRight">@((@item.GateChange == "No") || (@item.GateChange == "0") ? "No" : "-->" + @item.GateChange)</span>
+                                        <select id="mySelect" class="selector form-control custom-select @item.Name @item.LeftRight hiden" data-name="@item.Name" data-lere="@item.LeftRight" style="padding: 0.125rem 0.25rem !important; height:100%">
+                                            <option selected disabled>Select one</option>
+                                            <option value="No">No Change</option>
+                                            <option value="1">Gate 01</option>
+                                            <option value="2">Gate 02</option>
+                                            <option value="3">Gate 03</option>
+                                            <option value="4">Gate 04</option>
+                                            <option value="5">Gate 05</option>
+                                            <option value="6">Gate 06</option>
+                                            <option value="7">Gate 07</option>
+                                            <option value="8">Gate 08</option>
+                                            <option value="9">Gate 09</option>
+                                            <option value="10">Gate 10</option>
+                                        </select>
+                                    </td>
+                                    <td class="@(@item.Mode != "No" ? "text-green":"")">@item.Mode</td>
+                                    <td  class="@(@item.Auto != "No" ? "text-green":"")">
+                                        <i class="auto fas @(@item.Auto != "No" ? "fa-toggle-off":"fa-toggle-on")  fa-2xl @item.Name @item.LeftRight" data-name="@item.Name" data-lere="@item.LeftRight" style="font-size: x-large;color:#0b1c60"></i>
+                                        <div class="input-group @item.Name @item.LeftRight hiden">
+                                            <input id="inputClientCompany" type="text" class="form-control" placeholder="@item.LiveAuto">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text auto btnxmark" data-name="@item.Name" data-lere="@item.LeftRight"><i class="fas fa-times"></i></span>
+                                                <span class="input-group-text auto btncheck" data-name="@item.Name" data-lere="@item.LeftRight"><i class="fas fa-check"></i></span>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
