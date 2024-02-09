@@ -31,8 +31,8 @@ namespace DigitalSignageSevice.SubscribeTableDependencies
             {
                 if ((e.Entity.Work == "Yes")&& (e.Entity.ConnectionId != ""))
                 {
-                    await dashboardHub.SendReloadToClient(e.Entity.ConnectionId!, "Reload");
-                    digitalSignarlRepository.UpdateWorkToNo(e.Entity.Id.ToString());
+                    await dashboardHub.ReloadServerDashboard();
+                    digitalSignarlRepository.UpdateWorkToNo(e.Entity.Ip!.ToString());
                 }
             }
         }

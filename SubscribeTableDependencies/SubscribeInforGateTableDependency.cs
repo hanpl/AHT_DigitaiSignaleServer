@@ -1,6 +1,7 @@
 ﻿using DigitalSignageSevice.Hubs;
 using DigitalSignageSevice.Models;
 using DigitalSignageSevice.Repositories;
+using System.Xml.Linq;
 using TableDependency.SqlClient;
 using TableDependency.SqlClient.Base.EventArgs;
 
@@ -33,7 +34,7 @@ namespace DigitalSignageSevice.SubscribeTableDependencies
                 Console.WriteLine(time + "---" + currentTime + "----" + currentTime.AddMinutes(30));
                 if ((currentTime.AddMinutes(-20)<time) && (currentTime.AddMinutes(150) > time))
                 {
-                    Console.WriteLine(e.Entity.Gate);
+                    Console.WriteLine("AHTBG" + e.Entity.Gate);
                     var data = digitalSignarlRepository.GetConnectionId("AHTBG" + e.Entity.Gate);
                     if (data != null)
                     {
@@ -45,6 +46,7 @@ namespace DigitalSignageSevice.SubscribeTableDependencies
                             }
                         }
                     }
+                    await dashboardHub.ReloadServerDashboard();
                 }
             }
         }

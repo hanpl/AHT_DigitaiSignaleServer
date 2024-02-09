@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>J:\2024\AHT\Digital Signage\AHT_DigitaiSignaleServer\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2024-01-20T06:16:51.5779001Z;True|2024-01-20T12:28:49.3346074+07:00;</History>
+    <History>True|2024-02-09T05:14:49.4551592Z;True|2024-02-03T10:26:38.5246710+07:00;True|2024-02-03T10:22:21.3643170+07:00;False|2024-02-03T10:21:53.0970807+07:00;True|2024-02-02T18:51:08.8714535+07:00;True|2024-02-02T17:16:54.5433397+07:00;True|2024-02-02T12:43:43.8673185+07:00;True|2024-02-02T12:27:35.6240758+07:00;True|2024-01-20T13:16:51.5779001+07:00;True|2024-01-20T12:28:49.3346074+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

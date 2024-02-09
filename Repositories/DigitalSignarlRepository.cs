@@ -209,6 +209,63 @@ namespace DigitalSignageSevice.Repositories
                 finally { connection.Close(); }
             }
         }
+        public bool UpdateToDB(string name, string lere, string column, string value)
+        {
+            string query = "UPDATE [MSMQFLIGHT].[dbo].[AHT_DigitalSignage] SET " + column+ "  = @Value WHERE Name = @Name AND LeftRight = @Lere";
+            //Console.WriteLine(query);
+            DataTable dataTable = new DataTable();
+            //string connectionString = "Data Source=172.17.2.38;Initial Catalog=MSMQFLIGHT;Persist Security Info=True;User ID=sa;Password=AHT@2019";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Value", value);
+                        command.Parameters.AddWithValue("@Name", name);
+                        command.Parameters.AddWithValue("@Lere", lere);
+                        command.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                finally { connection.Close(); }
+            }
+        }
+        public bool UpdateModeToDB(string name, string lere, string mode, string value)
+        {
+            string query = "UPDATE [MSMQFLIGHT].[dbo].[AHT_DigitalSignage] SET Auto = @mode, LiveAuto = @Value WHERE Name = @Name AND LeftRight = @Lere";
+            //Console.WriteLine(query);
+            DataTable dataTable = new DataTable();
+            //string connectionString = "Data Source=172.17.2.38;Initial Catalog=MSMQFLIGHT;Persist Security Info=True;User ID=sa;Password=AHT@2019";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@mode", mode);
+                        command.Parameters.AddWithValue("@Value", value);
+                        command.Parameters.AddWithValue("@Name", name);
+                        command.Parameters.AddWithValue("@Lere", lere);
+                        command.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                finally { connection.Close(); }
+            }
+        }
+
+
         #endregion
     }
 }
